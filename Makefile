@@ -24,15 +24,19 @@ build:
 	@echo "Building website..."
 	@emacs --batch -l publish.el --eval "(org-publish-all t)"
 	@echo "Post-processing HTML titles..."
-	@for mapping in "cv:CV" "research:Research" "teaching:Teaching" "misc:Misc"; do \
+	@for mapping in "cv:Curriculum Vitae:CV" "research:Research:Research" "teaching:Teaching:Teaching" "misc:Miscellaneous:Misc"; do \
 		file=$$(echo $$mapping | cut -d: -f1); \
-		title=$$(echo $$mapping | cut -d: -f2); \
-		$(SED_INPLACE) "s|<title>$$title</title>|<title>$$title \| Siipola</title>|g" $(BUILD_DIR)/$$file.html; \
+		original_title=$$(echo $$mapping | cut -d: -f2); \
+		new_title=$$(echo $$mapping | cut -d: -f3); \
+		$(SED_INPLACE) "s|<title>$$original_title</title>|<title>$$new_title \| Siipola</title>|g" $(BUILD_DIR)/$$file.html; \
 	done
-	@# Handle notes pages
-	@$(SED_INPLACE) 's|<title>Interactive 3D Visualization</title>|<title>Notes \| Siipola</title>|g' \
-		$(BUILD_DIR)/blog/2025-08-blog-test.html \
-		$(BUILD_DIR)/notes/2025-08-blog-test.html
+	@# Handle notes pages - make any title in blog/notes become "Notes | Siipola"
+	@if [ -f "$(BUILD_DIR)/blog/2025-08-blog-test.html" ]; then \
+		$(SED_INPLACE) 's|<title>[^<]*</title>|<title>Notes \| Siipola</title>|g' $(BUILD_DIR)/blog/2025-08-blog-test.html; \
+	fi
+	@if [ -f "$(BUILD_DIR)/notes/2025-08-blog-test.html" ]; then \
+		$(SED_INPLACE) 's|<title>[^<]*</title>|<title>Notes \| Siipola</title>|g' $(BUILD_DIR)/notes/2025-08-blog-test.html; \
+	fi
 	@echo "Removing duplicate title tags (except index.html)..."
 	@find $(BUILD_DIR) -name "*.html" ! -name "index.html" -exec $(SED_INPLACE) 's|<title>Arttu Siipola</title>||g' {} \;
 	@echo "✅ Build complete!"
