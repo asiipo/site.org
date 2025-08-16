@@ -20,69 +20,105 @@
 
 * Blog Test
 
+This is a test blog post to demonstrate interactive mathematical content on the academic website.
+
 ** MathJax example
 
 $$\max_{x,y} U(x,y) = x^\alpha y^{1-\alpha}$$
 
-** Code Example
+** 3D Rosenbrock Function Visualization
 
-#+BEGIN_SRC python :exports both :results output html
+Below is an interactive 3D visualization of the famous Rosenbrock function, commonly used in optimization research:
+
+#+BEGIN_SRC python :exports results :results output html
 import plotly.graph_objects as go
+import plotly.io as pio
 import plotly.offline as pyo
 import numpy as np
 
-# Rosenbrock function: f(x,y) = (a-x)² + b(y-x²)²
+# Ensure proper HTML output
+pio.renderers.default = 'browser'
+
+# Create the Rosenbrock function: f(x,y) = (a-x)^2 + b(y-x^2)^2
 # Standard parameters: a=1, b=100
 def rosenbrock(x, y, a=1, b=100):
     return (a - x)**2 + b * (y - x**2)**2
 
-# Create a grid of x,y values
-x = np.linspace(-2, 2, 100)
-y = np.linspace(-1, 3, 100)
+# Create grid of x,y values
+x = np.linspace(-2, 2, 50)
+y = np.linspace(-1, 3, 50)
 X, Y = np.meshgrid(x, y)
+
+# Calculate the Rosenbrock function values
 Z = rosenbrock(X, Y)
 
-# Create interactive 3D surface plot
+# Apply log transformation to better visualize the steep gradients
+Z_log = np.log(Z + 1)  # Add 1 to avoid log(0)
+
+# Create the figure
 fig = go.Figure()
 
-# Add surface plot
-fig.add_trace(go.Surface(
-    x=X, 
-    y=Y, 
-    z=Z,
-    colorscale='Viridis',
-    name='Rosenbrock Function'
-))
+# Add the Rosenbrock surface
+fig.add_trace(
+    go.Surface(
+        x=X,
+        y=Y,
+        z=Z_log,
+        colorscale='Plasma',
+        showscale=True,
+        colorbar=dict(
+            len=0.6,
+            thickness=15,
+            x=0.95,
+            xanchor='left'
+        ),
+        name='log(Rosenbrock + 1)',
+        hovertemplate='x: %{x:.2f}<br>y: %{y:.2f}<br>log(f+1): %{z:.2f}<extra></extra>'
+    )
+)
 
-# Add the global minimum point at (1,1,0)
-fig.add_trace(go.Scatter3d(
-    x=[1], 
-    y=[1], 
-    z=[0],
-    mode='markers',
-    marker=dict(size=10, color='red'),
-    name='Global Minimum (1,1,0)'
-))
+# Add the global minimum point at (1,1)
+fig.add_trace(
+    go.Scatter3d(
+        x=[1],
+        y=[1],
+        z=[np.log(rosenbrock(1, 1) + 1)],
+        mode='markers',
+        marker=dict(size=10, color='red', symbol='diamond'),
+        name='Global Minimum (1,1)'
+    )
+)
 
+# Update layout
 fig.update_layout(
-    title='Interactive Rosenbrock Function<br>f(x,y) = (1-x)² + 100(y-x²)²',
+    title="Rosenbrock Function: f(x,y) = (1-x)² + 100(y-x²)² (log scale)",
     scene=dict(
         xaxis_title='x',
         yaxis_title='y',
-        zaxis_title='f(x,y)',
-        camera=dict(eye=dict(x=1.5, y=1.5, z=1.5))
+        zaxis_title='log(f(x,y) + 1)',
+        aspectmode='manual',
+        aspectratio=dict(x=1, y=1, z=0.7),
+        camera=dict(
+            eye=dict(x=1.5, y=1.5, z=1.2)
+        )
     ),
-    width=800,
-    height=600
+    width=1000,
+    height=700,
+    legend=dict(
+        x=0.02,
+        y=0.98,
+        bgcolor='rgba(255,255,255,0.8)',
+        bordercolor='rgba(0,0,0,0.3)',
+        borderwidth=1
+    ),
+    margin=dict(l=0, r=0, t=50, b=0)
 )
 
-# Generate HTML
-html_plot = pyo.plot(fig, output_type='div', include_plotlyjs=False)
-print(html_plot)
+# Generate HTML div with proper JavaScript inclusion
+html_div = pyo.plot(fig, output_type='div', include_plotlyjs=True)
+print(html_div)
 #+END_SRC
 
 ---
-
-[[file:../posts.html][← Back to All Posts]]
 
 /Published: August 16, 2025/
