@@ -13,7 +13,7 @@ all: build
 
 # Build the site
 build:
-	@echo "Building academic website..."
+	@echo "Building website..."
 	@emacs --batch -l publish.el --eval "(org-publish-all t)"
 	@echo "✅ Build complete!"
 

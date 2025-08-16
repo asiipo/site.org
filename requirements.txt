@@ -1,0 +1,5 @@
+# Python dependencies for interactive blog content
+# Used by org-babel for executing Python code blocks
+
+numpy>=2.0.0
+plotly>=5.0.0

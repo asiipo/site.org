@@ -33,7 +33,7 @@
 ;; Use system python in CI, local venv for development
 (setq org-babel-python-command 
       (if (getenv "GITHUB_ACTIONS")
-          "python"
+          "python3"
         (expand-file-name "./.venv/bin/python")))
 
 ;; Don't prompt before evaluating code blocks
@@ -76,9 +76,6 @@
        (list "academic-site" :components '("academic-site:main" "academic-site:static" "academic-site:cname"))
        ))
 
-;; Generate the site output
-(org-publish-all t)
-
-(message "Build complete!")
+(message "Publishing configuration loaded!")
 
 ;;; publish.el ends here

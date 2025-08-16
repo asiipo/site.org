@@ -1,11 +1,11 @@
 # Academic Economics Website
 
-A complete org-mode based academic website for economics PhD candidates on the job market, built with Emacs org-publish and deployed to GitHub Pages.
+A complete org-mode based academic website, built with Emacs org-publish and deployed to GitHub Pages.
 
 ## Structure
 
 ```
-org/                    # Source org files
+org/                   # Source org files
 ├── index.org          # Homepage with profile and quick links
 ├── cv.org             # CV page with PDF download
 ├── research.org       # Job market paper, working papers, publications
@@ -13,7 +13,7 @@ org/                    # Source org files
 ├── contact.org        # Contact info with academic profiles
 └── blog/              # Blog posts directory
 
-static/                 # Static assets
+static/                # Static assets
 ├── css/site.css       # Clean academic styling
 ├── img/profile.jpeg   # Professional headshot
 └── CV.pdf             # Downloadable CV
@@ -72,18 +72,24 @@ make deploy
 
 - **Emacs** with org-mode (for building)  
 - **htmlize** package (auto-installed)
-- **Python 3.9+** (for local preview server and mathematical visualizations)
-- **Python packages**: `matplotlib`, `numpy`, `plotly`, `kaleido` (for org-babel Python execution)
+- **Python 3.9+** (for local preview server and interactive visualizations)
 
 ## Local Development Setup
 
-For Python visualizations in blog posts:
+### Required for Interactive Blog Content
+
+The site includes interactive Python visualizations in blog posts. To enable these features:
 
 ```bash
-# Create virtual environment
+# Create virtual environment (this will be auto-created by the build process)
 python3 -m venv .venv
 source .venv/bin/activate
 
-# Install Python dependencies
-pip install matplotlib numpy plotly kaleido
+# Install required Python dependencies
+pip install -r requirements.txt
+
+# Alternative: Install manually
+pip install numpy plotly
 ```
+
+**Note**: The build system (`publish.el`) will automatically use the virtual environment if it exists, otherwise it falls back to system Python. For GitHub Actions deployment, only system Python is used.
