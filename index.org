@@ -14,7 +14,7 @@ I'm a developer who likes to write content in org-mode and publish it as a stati
 
 ** Recent Posts
 
-- [[file:posts/first-post.org][My First Post]]
+- [[./posts/first-post.html][My First Post]]
 - More posts coming soon...
 
 ** Contact

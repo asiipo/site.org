@@ -29,7 +29,7 @@ hello_world()
 
 ** Links
 
-- [[../index.org][Back to Home]]
+- [[../index.html][Back to Home]]
 - [[https://orgmode.org][Learn more about org-mode]]
 
 ---
