@@ -1,0 +1,12 @@
+# Ignore build artifacts
+public/
+.packages/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore editor files
+*~
+\#*\#
+.\#*
