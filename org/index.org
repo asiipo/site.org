@@ -1,10 +1,7 @@
-#+TITLE: {{NAME}}
+#+TITLE: Arttu Siipola
 #+AUTHOR: {{NAME}}
 #+EMAIL: {{EMAIL_OBFUSCATED}}
 #+OPTIONS: toc:nil num:nil html-style:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="static/css/site.css" />
-#+HTML_HEAD: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-#+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 #+BEGIN_EXPORT html
 <nav class="top-nav">
@@ -12,8 +9,7 @@
   <a href="cv.html">CV</a> |
   <a href="research.html">Research</a> |
   <a href="teaching.html">Teaching</a> |
-  <a href="posts.html">Blog</a> |
-  <a href="contact.html">Contact</a>
+  <a href="misc.html">Misc</a>
 </nav>
 #+END_EXPORT
 

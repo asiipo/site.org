@@ -15,6 +15,18 @@ all: build
 build:
 	@echo "Building website..."
 	@emacs --batch -l publish.el --eval "(org-publish-all t)"
+	@echo "Post-processing HTML titles..."
+	@for mapping in "cv:CV" "research:Research" "teaching:Teaching" "misc:Misc"; do \
+		file=$$(echo $$mapping | cut -d: -f1); \
+		title=$$(echo $$mapping | cut -d: -f2); \
+		sed -i '' "s|<title>$$title</title>|<title>$$title \| Siipola</title>|g" $(BUILD_DIR)/$$file.html; \
+	done
+	@# Handle notes pages
+	@sed -i '' 's|<title>Interactive 3D Visualization</title>|<title>Notes \| Siipola</title>|g' \
+		$(BUILD_DIR)/blog/2025-08-blog-test.html \
+		$(BUILD_DIR)/notes/2025-08-blog-test.html
+	@echo "Removing duplicate title tags (except index.html)..."
+	@find $(BUILD_DIR) -name "*.html" ! -name "index.html" -exec sed -i '' 's|<title>Arttu Siipola</title>||g' {} \;
 	@echo "✅ Build complete!"
 
 # Serve locally for development

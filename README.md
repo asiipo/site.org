@@ -1,4 +1,4 @@
-# Academic Economics Website
+# Academic Website
 
 A complete org-mode based academic website, built with Emacs org-publish and deployed to GitHub Pages.
 
@@ -10,7 +10,6 @@ org/                   # Source org files
 ├── cv.org             # CV page with PDF download
 ├── research.org       # Job market paper, working papers, publications
 ├── teaching.org       # Teaching experience, materials, philosophy
-├── contact.org        # Contact info with academic profiles
 └── blog/              # Blog posts directory
 
 static/                # Static assets

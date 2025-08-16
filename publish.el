@@ -57,8 +57,15 @@
              :html-head-include-scripts nil ; Don't include scripts
              :html-head-include-default-style nil ; Don't include default style
              :html-doctype "html5"      ; Use HTML5
-             :with-broken-links t       ; Allow placeholder links
-             :auto-sitemap nil          ; Don't auto-generate sitemap (we have manual posts.org)
+                                     :with-broken-links t       ; Allow placeholder links
+                                     :auto-sitemap nil          ; Don't auto-generate sitemap (we have manual posts.org)
+                                     :html-head-extra (concat
+                                           "<link rel=\"icon\" type=\"image/png\" href=\"static/img/uh-logo.png\" />"
+                                           "\n<link rel=\"stylesheet\" type=\"text/css\" href=\"static/css/site.css\" />"
+                                           "\n<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>"
+                                           "\n<script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>"
+                                           "\n<script src=\"static/js/contact-banner.js\"></script>"
+                                     )
              )
        (list "academic-site:static"
              :base-directory "./static/"
