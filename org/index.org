@@ -1,0 +1,42 @@
+#+TITLE: {{NAME}}
+#+AUTHOR: {{NAME}}
+#+EMAIL: {{EMAIL_OBFUSCATED}}
+#+OPTIONS: toc:nil num:nil html-style:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="static/css/site.css" />
+#+HTML_HEAD: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+#+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+#+BEGIN_EXPORT html
+<nav class="top-nav">
+  <a href="index.html">Home</a> |
+  <a href="cv.html">CV</a> |
+  <a href="research.html">Research</a> |
+  <a href="teaching.html">Teaching</a> |
+  <a href="posts.html">Blog</a> |
+  <a href="contact.html">Contact</a>
+</nav>
+#+END_EXPORT
+
+* About Me
+
+#+BEGIN_EXPORT html
+<div class="profile-section">
+  <img src="static/img/profile.jpeg" alt="{{NAME}}" class="profile-photo">
+  <div class="profile-text">
+#+END_EXPORT
+
+I am a doctoral researcher in Economics at the University of Helsinki, participating in the job market for 2027-2028.
+
+#+BEGIN_EXPORT html
+  </div>
+</div>
+#+END_EXPORT
+
+** Job Market Paper
+
+** Research Interests
+
+** News & Updates
+
+---
+/Last updated: {{{time(%Y-%m-%d)}}}/

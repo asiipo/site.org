@@ -21,15 +21,29 @@
 
 (require 'ox-publish)
 
+;; Enable org-babel for code execution
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (python . t)
+   (shell . t)
+   (emacs-lisp . t)))
+
+;; Configure Python executable for org-babel
+(setq org-babel-python-command (expand-file-name "./.venv/bin/python"))
+
+;; Don't prompt before evaluating code blocks
+(setq org-confirm-babel-evaluate nil)
+
 ;; Define the publishing project
 (setq org-publish-project-alist
       (list
-       (list "org-site:main"
+       (list "academic-site:main"
              :recursive t
-             :base-directory "./"
+             :base-directory "./org/"
              :publishing-directory "./public/"
              :publishing-function 'org-html-publish-to-html
-             :exclude "README\\.org\\|build\\.sh\\|publish\\.el\\|\\.packages\\|public/"
+             :exclude "README\\.org"
              :with-author nil           ; Don't include author name
              :with-creator t            ; Include Emacs and Org versions
              :with-toc nil              ; Don't include a table of contents
@@ -38,19 +52,24 @@
              :html-validation-link nil  ; Don't include validation link
              :html-head-include-scripts nil ; Don't include scripts
              :html-head-include-default-style nil ; Don't include default style
-             :auto-sitemap t            ; Generate sitemap
-             :sitemap-filename "sitemap.org"
-             :sitemap-title "Site Map"
+             :html-doctype "html5"      ; Use HTML5
+             :with-broken-links t       ; Allow placeholder links
+             :auto-sitemap nil          ; Don't auto-generate sitemap (we have manual posts.org)
              )
-       (list "org-site:static"
-             :base-directory "./"
-             :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|txt"
-             :publishing-directory "./public/"
+       (list "academic-site:static"
+             :base-directory "./static/"
+             :base-extension "css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|txt"
+             :publishing-directory "./public/static/"
              :recursive t
              :publishing-function 'org-publish-attachment
-             :exclude "public/"
              )
-       (list "org-site" :components '("org-site:main" "org-site:static"))
+       (list "academic-site:cname"
+             :base-directory "./"
+             :base-extension "CNAME"
+             :publishing-directory "./public/"
+             :publishing-function 'org-publish-attachment
+             )
+       (list "academic-site" :components '("academic-site:main" "academic-site:static" "academic-site:cname"))
        ))
 
 ;; Generate the site output

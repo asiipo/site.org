@@ -2,6 +2,12 @@
 public/
 .packages/
 
+# Ignore Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
 # Ignore OS files
 .DS_Store
 Thumbs.db
@@ -10,3 +16,9 @@ Thumbs.db
 *~
 \#*\#
 .\#*
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+.#*

@@ -1,36 +1,88 @@
-# site.org
+# Academic Economics Website
 
-My personal webpage built with org-mode and GitHub Pages.
+A complete org-mode based academic website for economics PhD candidates on the job market, built with Emacs org-publish and deployed to GitHub Pages.
 
 ## Structure
 
-- `index.org` - Main homepage
-- `posts/` - Blog posts directory
-- `style.css` - CSS styling
-- `publish.el` - Emacs org-publish configuration
-- `build.sh` - Build script
-- `.github/workflows/build.yml` - GitHub Actions workflow
+```
+org/                    # Source org files
+├── index.org          # Homepage with profile and quick links
+├── cv.org             # CV page with PDF download
+├── research.org       # Job market paper, working papers, publications
+├── teaching.org       # Teaching experience, materials, philosophy
+├── contact.org        # Contact info with academic profiles
+└── blog/              # Blog posts directory
+    └── 2025-08-blog-test.org
 
-## Local Development
+static/                 # Static assets
+├── css/site.css       # Clean academic styling
+├── img/profile.jpg    # Professional headshot
+└── CV.pdf             # Downloadable CV
 
-1. Make sure you have Emacs installed
-2. Edit the org files (`index.org`, `posts/*.org`)
-3. Run the build script:
-   ```bash
-   ./build.sh
-   ```
-4. Preview locally:
-   ```bash
-   python3 -m http.server 8000 --directory public
-   ```
+public/                # Generated website (auto-created)
+├── index.html         # Built homepage
+├── static/            # Copied static files
+└── ...                # Other generated HTML files
 
-## Deployment
+CNAME                 # Custom domain
+Makefile              # Build automation
+publish.el            # Org-publish configuration
+```
 
-The site automatically builds and deploys to GitHub Pages when you push to the main branch.
+## Quick Start
+
+1. **Customize content**: Edit files in `org/` directory with your information
+2. **Add assets**: Replace placeholders in `static/` with your CV and photo
+3. **Build**: `make build`
+4. **Preview**: `make serve` (opens http://localhost:8000)
+5. **Deploy**: Push to GitHub, enable Pages
 
 ## Customization
 
-- Edit `index.org` for the homepage content
-- Add new posts in the `posts/` directory
-- Modify `style.css` for styling
-- Update `publish.el` for advanced org-publish settings
+Replace these placeholders throughout the org files:
+
+- `{{NAME}}` - Your full name
+- `{{AFFILIATION}}` - University/institution
+- `{{EMAIL_OBFUSCATED}}` - Your email (consider obfuscation)
+- `{{GOOGLE_SCHOLAR_URL}}` - Your Google Scholar profile
+- `{{GITHUB_URL}}` - Your GitHub profile  
+- `{{LINKEDIN_URL}}` - Your LinkedIn profile
+- `{{JMP_TITLE}}` - Job market paper title
+- `{{JMP_PDF}}` - Job market paper filename
+
+## Building & Development
+
+```bash
+# Build the site
+make build
+
+# Serve locally with hot reload
+make serve
+
+# Clean build artifacts  
+make clean
+
+# Force complete rebuild
+make rebuild
+
+# Deploy to gh-pages branch (optional)
+make deploy
+```
+
+## Dependencies
+
+- **Emacs** with org-mode (for building)  
+- **htmlize** package (auto-installed)
+- **Python 3** (for local preview server)
+
+## Academic Best Practices
+
+The template includes:
+- Professional typography (Times New Roman)
+- Clean PDF download links  
+- Academic profile integration
+- Job market paper prominence
+- Teaching portfolio structure
+- Research categorization
+- Contact information layout
+- Mobile responsiveness
