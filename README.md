@@ -12,11 +12,10 @@ org/                    # Source org files
 ├── teaching.org       # Teaching experience, materials, philosophy
 ├── contact.org        # Contact info with academic profiles
 └── blog/              # Blog posts directory
-    └── 2025-08-blog-test.org
 
 static/                 # Static assets
 ├── css/site.css       # Clean academic styling
-├── img/profile.jpg    # Professional headshot
+├── img/profile.jpeg   # Professional headshot
 └── CV.pdf             # Downloadable CV
 
 public/                # Generated website (auto-created)
@@ -73,16 +72,18 @@ make deploy
 
 - **Emacs** with org-mode (for building)  
 - **htmlize** package (auto-installed)
-- **Python 3** (for local preview server)
+- **Python 3.9+** (for local preview server and mathematical visualizations)
+- **Python packages**: `matplotlib`, `numpy`, `plotly`, `kaleido` (for org-babel Python execution)
 
-## Academic Best Practices
+## Local Development Setup
 
-The template includes:
-- Professional typography (Times New Roman)
-- Clean PDF download links  
-- Academic profile integration
-- Job market paper prominence
-- Teaching portfolio structure
-- Research categorization
-- Contact information layout
-- Mobile responsiveness
+For Python visualizations in blog posts:
+
+```bash
+# Create virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install Python dependencies
+pip install matplotlib numpy plotly kaleido
+```

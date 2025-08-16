@@ -1,11 +1,10 @@
 #+TITLE: Blog Test
-#+AUTHOR: {{NAME}}
+#+AUTHOR: Your Name
 #+DATE: <2025-08-16 Fri>
 #+OPTIONS: toc:nil num:nil html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/site.css" />
 #+HTML_HEAD: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 #+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-#+HTML_HEAD: <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 #+BEGIN_EXPORT html
 <nav class="top-nav">
@@ -24,7 +23,9 @@ This is a test blog post to demonstrate interactive mathematical content on the 
 
 ** MathJax example
 
-$$\max_{x,y} U(x,y) = x^\alpha y^{1-\alpha}$$
+$$f(x,y) = (a-x)^2 + b(y-x^2)^2$$
+
+Where $a = 1$ and $b = 100$ for the standard Rosenbrock function. The global minimum is at $(x,y) = (a,a^2) = (1,1)$ where $f(1,1) = 0$.
 
 ** 3D Rosenbrock Function Visualization
 
