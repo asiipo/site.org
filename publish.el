@@ -30,7 +30,11 @@
    (emacs-lisp . t)))
 
 ;; Configure Python executable for org-babel
-(setq org-babel-python-command (expand-file-name "./.venv/bin/python"))
+;; Use system python in CI, local venv for development
+(setq org-babel-python-command 
+      (if (getenv "GITHUB_ACTIONS")
+          "python"
+        (expand-file-name "./.venv/bin/python")))
 
 ;; Don't prompt before evaluating code blocks
 (setq org-confirm-babel-evaluate nil)
