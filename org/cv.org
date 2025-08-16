@@ -1,4 +1,4 @@
-#+TITLE: Curriculum Vitae - {{NAME}}
+#+TITLE: Curriculum Vitae
 #+AUTHOR: {{NAME}}
 #+OPTIONS: toc:nil num:nil html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="static/css/site.css" />
