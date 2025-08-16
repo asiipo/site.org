@@ -5,26 +5,14 @@ A complete org-mode based academic website, built with Emacs org-publish and dep
 ## Structure
 
 ```
-org/                   # Source org files
-├── index.org          # Homepage with profile and quick links
-├── cv.org             # CV page with PDF download
-├── research.org       # Job market paper, working papers, publications
-├── teaching.org       # Teaching experience, materials, philosophy
-└── blog/              # Blog posts directory
+org/         # Source org files
+static/      # Static assets (copied to public/static/)
+public/      # Generated website (auto-created)
 
-static/                # Static assets
-├── css/site.css       # Clean academic styling
-├── img/profile.jpeg   # Professional headshot
-└── CV.pdf             # Downloadable CV
-
-public/                # Generated website (auto-created)
-├── index.html         # Built homepage
-├── static/            # Copied static files
-└── ...                # Other generated HTML files
-
-CNAME                 # Custom domain
-Makefile              # Build automation
-publish.el            # Org-publish configuration
+CNAME        # Custom domain
+Makefile     # Build automation
+publish.el   # Org-publish configuration
+requirements.txt # Python dependencies
 ```
 
 ## Quick Start
@@ -34,19 +22,6 @@ publish.el            # Org-publish configuration
 3. **Build**: `make build`
 4. **Preview**: `make serve` (opens http://localhost:8000)
 5. **Deploy**: Push to GitHub, enable Pages
-
-## Customization
-
-Replace these placeholders throughout the org files:
-
-- `{{NAME}}` - Your full name
-- `{{AFFILIATION}}` - University/institution
-- `{{EMAIL_OBFUSCATED}}` - Your email (consider obfuscation)
-- `{{GOOGLE_SCHOLAR_URL}}` - Your Google Scholar profile
-- `{{GITHUB_URL}}` - Your GitHub profile  
-- `{{LINKEDIN_URL}}` - Your LinkedIn profile
-- `{{JMP_TITLE}}` - Job market paper title
-- `{{JMP_PDF}}` - Job market paper filename
 
 ## Building & Development
 

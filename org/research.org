@@ -2,16 +2,6 @@
 #+AUTHOR: {{NAME}}
 #+OPTIONS: toc:nil num:nil html-style:nil
 
-#+BEGIN_EXPORT html
-<nav class="top-nav">
-  <a href="index.html">Home</a> |
-  <a href="cv.html">CV</a> |
-  <a href="research.html">Research</a> |
-  <a href="teaching.html">Teaching</a> |
-  <a href="misc.html">Misc</a>
-</nav>
-#+END_EXPORT
-
 * Research
 
 ** Job Market Paper

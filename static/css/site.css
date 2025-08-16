@@ -1,3 +1,12 @@
+.creator-in-banner a:hover {
+    color: #ffe6b3 !important;
+}
+.creator-in-banner a {
+    color: rgba(255,255,255,0.7) !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    transition: color 0.2s;
+}
+
 /* Modern Academic Website CSS */
 
 /* Import modern fonts */
@@ -8,18 +17,27 @@
     --primary-color: #1e4137;
     --primary-light: #2a5a4c;
     --secondary-color: #64748b;
+    --accent: #e76f51;             /* warm accent for micro-highlights */
     --text-primary: #1e293b;
-    --text-secondary: #64748b;
+    --text-secondary: #475569;      /* slightly darker */
     --text-muted: #94a3b8;
     --background: #ffffff;
     --surface: #f8fafc;
     --surface-hover: #f1f5f9;
     --border: #e2e8f0;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-sm: 0 1px 1.5px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 10px rgba(0,0,0,.08);
+    --shadow-lg: 0 10px 24px rgba(0,0,0,.12);
     --border-radius: 12px;
     --border-radius-lg: 16px;
+    --measure: 72ch;
+    --space-1: .5rem; --space-2: 1rem; --space-3: 1.5rem;
+    --space-4: 2rem;  --space-5: 3rem; --space-6: 4rem;
+}
+
+main, article {
+    max-width: var(--measure);
+    margin-inline: auto;
 }
 
 /* Base Styles */
@@ -33,6 +51,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
+    padding-bottom: 120px; /* Add space for fixed footer */
     color: var(--text-primary);
     background: var(--background);
     font-size: 16px;
@@ -42,10 +61,10 @@ body {
 
 /* Modern Navigation */
 .top-nav {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: var(--primary-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--border-radius);
-    padding: 1rem 2rem;
+    padding: 0.7rem 2rem;
     margin-bottom: 3rem;
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
@@ -55,19 +74,23 @@ body {
     z-index: 100;
 }
 
+
 .top-nav a {
-    color: var(--text-secondary);
+    color: white;
     text-decoration: none;
-    margin: 0 1.5rem;
+    margin: 0 0.75rem;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     transition: all 0.2s ease;
-    padding: 0.5rem 0;
+    padding: 1rem 1.5rem;
     position: relative;
+    display: inline-block;
+    border-radius: var(--border-radius);
 }
 
 .top-nav a:hover {
-    color: var(--primary-color);
+    color: #ffe6b3;
+    background: rgba(255,255,255,.12);
     transform: translateY(-1px);
 }
 
@@ -78,7 +101,7 @@ body {
     left: 50%;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    background: linear-gradient(90deg, #ffe6b3, #ffe6b3);
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -99,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1.title {
-    font-size: 4.5rem;
+    font-size: clamp(2.4rem, 3vw + 1.6rem, 4.5rem);
     text-align: center;
     margin-bottom: 4rem;
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
@@ -125,7 +148,7 @@ h1.title::after {
 }
 
 h2 {
-    font-size: 2.25rem;
+    font-size: clamp(1.6rem, 1.2vw + 1.2rem, 2.25rem);
     color: var(--text-primary);
     border-bottom: 3px solid var(--border);
     padding-bottom: 1rem;
@@ -144,32 +167,23 @@ h3 {
 }
 
 /* Modern Card Layout */
-.profile-section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--border-radius-lg);
-    padding: 2.5rem;
-    margin: 2rem 0;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2.5rem;
-    align-items: start;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-}
-
-.profile-section:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+.profile-flex {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5, 3rem);
+    margin: var(--space-6, 4rem) 0;
 }
 
 .profile-photo {
-    width: 200px;
-    height: 240px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    border-radius: var(--border-radius);
+    border-radius: 50%;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    display: block;
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .profile-photo:hover {
@@ -181,6 +195,22 @@ h3 {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
+    flex: 1 1 0%;
+}
+
+@media (max-width: 600px) {
+    .profile-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3, 1.5rem);
+    }
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+    .profile-text {
+        text-align: center;
+    }
 }
 
 /* Modern Button Styles */
@@ -231,7 +261,7 @@ h3 {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    padding: 2rem;
+    padding: var(--space-4);
     margin: 1.5rem 0;
     box-shadow: var(--shadow-sm);
     transition: all 0.3s ease;
@@ -290,7 +320,7 @@ a {
 }
 
 a:hover {
-    color: var(--primary-light);
+    color: var(--accent);
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
@@ -382,6 +412,13 @@ blockquote::before {
     opacity: 0.2;
 }
 
+/* Section Divider */
+.section-divider{
+  height:1px;
+  margin: var(--space-6) 0;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     body {
@@ -448,6 +485,10 @@ blockquote::before {
     h3 {
         font-size: 1.375rem;
     }
+    
+    .content-card {
+        padding: var(--space-3);
+    }
 }
 
 @media (max-width: 480px) {
@@ -467,7 +508,14 @@ blockquote::before {
     .top-nav a {
         display: block;
         margin: 0.25rem 0;
-        padding: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius);
+        text-align: center;
+    }
+    
+    .top-nav a:hover {
+        background: rgba(255, 255, 255, 0.2);
     }
 }
 
@@ -498,66 +546,100 @@ a:focus, button:focus {
     }
 }
 
-/* Contact Banner Footer */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    margin-top: 2rem;
+  }
+}
+
+/* Contact Banner Footer - Horizontal Layout */
 .contact-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
     background: var(--primary-color);
     color: white;
-    padding: 1.5rem 1rem;
-    margin-top: 3rem;
     box-shadow: var(--shadow-lg);
-    border-radius: var(--border-radius);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 56px;
 }
 
 .contact-banner-content {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    font-size: 0.9rem;
 }
 
 .contact-banner-info {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.contact-banner-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0.9;
+.contact-banner-item a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
 }
 
 .contact-banner-item:hover {
     opacity: 1;
 }
 
-.contact-banner-item a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-}
 
 .contact-banner-item a:hover {
+    color: #ffe6b3;
     text-decoration: underline;
 }
 
+.contact-banner-item svg { width: 18px; height: 18px; flex: 0 0 auto; }
+
+.creator-in-banner {
+    position: absolute;
+    bottom: -0.3rem;
+    right: 1.5rem;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    z-index: 2;
+    line-height: 1.2;
+    text-align: right;
+}
+
+
 /* Mobile responsive contact banner */
 @media (max-width: 768px) {
-    .contact-banner-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+    .contact-banner {
+        padding: 0.5rem 1rem;
     }
     
     .contact-banner-info {
-        flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .contact-banner-item {
+        font-size: 0.85rem;
+        min-width: fit-content;
     }
 }

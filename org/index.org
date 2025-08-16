@@ -3,25 +3,15 @@
 #+EMAIL: {{EMAIL_OBFUSCATED}}
 #+OPTIONS: toc:nil num:nil html-style:nil
 
-#+BEGIN_EXPORT html
-<nav class="top-nav">
-  <a href="index.html">Home</a> |
-  <a href="cv.html">CV</a> |
-  <a href="research.html">Research</a> |
-  <a href="teaching.html">Teaching</a> |
-  <a href="misc.html">Misc</a>
-</nav>
-#+END_EXPORT
-
 * About Me
 
 #+BEGIN_EXPORT html
-<div class="profile-section">
+<div class="profile-flex">
   <img src="static/img/profile.jpeg" alt="{{NAME}}" class="profile-photo">
   <div class="profile-text">
 #+END_EXPORT
 
-I am a doctoral researcher in Economics at the University of Helsinki, participating in the job market for 2027-2028.
+I am a doctoral researcher in Economics at the University of Helsinki.
 
 #+BEGIN_EXPORT html
   </div>
