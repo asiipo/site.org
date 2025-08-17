@@ -1,5 +1,5 @@
 #+TITLE: Miscellaneous
-#+AUTHOR: {{NAME}}
+#+AUTHOR: Arttu Siipola
 #+OPTIONS: toc:nil num:nil html-style:nil
 
 * Misc
@@ -10,8 +10,6 @@ Various resources and content.
 
 Recent notes:
 
-- [[file:notes/2025-08-blog-test.org][Blog Test]] /August 16, 2025/
+- [[file:notes/2025-08-note-test.org][Note Test]] /August 16, 2025/
 
 ---
-
-[[file:index.html][← Back to Home]]

@@ -31,12 +31,15 @@ build:
 		$(SED_INPLACE) "s|<title>$$original_title</title>|<title>$$new_title \| Siipola</title>|g" $(BUILD_DIR)/$$file.html; \
 	done
 	@# Handle notes pages - make any title in blog/notes become "Notes | Siipola"
-	@if [ -f "$(BUILD_DIR)/blog/2025-08-blog-test.html" ]; then \
-		$(SED_INPLACE) 's|<title>[^<]*</title>|<title>Notes \| Siipola</title>|g' $(BUILD_DIR)/blog/2025-08-blog-test.html; \
+	@if [ -f "$(BUILD_DIR)/notes/2025-08-note-test.html" ]; then \
+		$(SED_INPLACE) 's|<title>[^<]*</title>|<title>Notes \| Siipola</title>|g' $(BUILD_DIR)/notes/2025-08-note-test.html; \
 	fi
-	@if [ -f "$(BUILD_DIR)/notes/2025-08-blog-test.html" ]; then \
-		$(SED_INPLACE) 's|<title>[^<]*</title>|<title>Notes \| Siipola</title>|g' $(BUILD_DIR)/notes/2025-08-blog-test.html; \
-	fi
+	@echo "Fixing paths in subdirectory files..."
+	@# Fix CSS and JS paths for notes subdirectory
+	@find $(BUILD_DIR)/notes/ -name "*.html" -exec $(SED_INPLACE) 's|href="static/|href="../static/|g' {} \; 2>/dev/null || true
+	@find $(BUILD_DIR)/notes/ -name "*.html" -exec $(SED_INPLACE) 's|src="static/|src="../static/|g' {} \; 2>/dev/null || true
+	@find $(BUILD_DIR)/blog/ -name "*.html" -exec $(SED_INPLACE) 's|href="static/|href="../static/|g' {} \; 2>/dev/null || true
+	@find $(BUILD_DIR)/blog/ -name "*.html" -exec $(SED_INPLACE) 's|src="static/|src="../static/|g' {} \; 2>/dev/null || true
 	@echo "Removing duplicate title tags (except index.html)..."
 	@find $(BUILD_DIR) -name "*.html" ! -name "index.html" -exec $(SED_INPLACE) 's|<title>Arttu Siipola</title>||g' {} \;
 	@echo "✅ Build complete!"

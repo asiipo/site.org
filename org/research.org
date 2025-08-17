@@ -1,16 +1,16 @@
 #+TITLE: Research
-#+AUTHOR: {{NAME}}
+#+AUTHOR: Arttu Siipola
 #+OPTIONS: toc:nil num:nil html-style:nil
 
 * Research
 
 ** Job Market Paper
 
-*** {{JMP_TITLE}}
+*** Coming Soon
 
 #+BEGIN_EXPORT html
 <div class="paper-links">
-  <a href="static/{{JMP_PDF}}" class="pdf-link">PDF</a>
+  <!-- <a href="static/jmp.pdf" class="pdf-link">PDF</a> -->
 </div>
 #+END_EXPORT
 

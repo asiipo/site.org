@@ -1,0 +1,60 @@
+/* ==========================================================================
+   NOTES LAYOUT - Full Width Layout for Notes Pages
+   ========================================================================== */
+
+/* Override main layout for notes pages - force block layout for full-width design */
+body {
+    display: block !important; /* Override responsive.css flex/block logic for notes */
+    min-height: 100vh;
+}
+
+/* Hide sidebar for notes pages */
+.sidebar {
+    display: none !important;
+}
+
+/* Hide page titles since we have notes header */
+h1.title {
+    display: none !important;
+}
+
+/* Enhanced content styling for full-width notes */
+#content {
+    margin-left: 0 !important;
+    max-width: var(--breakpoint-xl) !important;
+    margin: 0 auto !important;
+    padding: var(--space-4) var(--space-6) !important;
+    width: 100% !important;
+}
+
+@media (max-width: var(--breakpoint-xl)) {
+    #content {
+        padding: var(--space-4) !important;
+    }
+}
+
+@media (max-width: var(--breakpoint-md)) {
+    #content {
+        padding: var(--space-2) !important;
+    }
+}
+
+/* Notes postamble positioning */
+#postamble {
+    margin-left: 0 !important;
+    max-width: var(--breakpoint-xl) !important;
+    margin: var(--space-4) auto 0 auto !important;
+    padding: var(--space-2) var(--space-6) !important;
+}
+
+@media (max-width: var(--breakpoint-xl)) {
+    #postamble {
+        padding: var(--space-2) var(--space-4) !important;
+    }
+}
+
+@media (max-width: var(--breakpoint-md)) {
+    #postamble {
+        padding: var(--space-2) !important;
+    }
+}

@@ -1,5 +1,5 @@
 #+TITLE: Teaching
-#+AUTHOR: {{NAME}}
+#+AUTHOR: Arttu Siipola
 #+OPTIONS: toc:nil num:nil html-style:nil
 
 * Teaching

@@ -5,12 +5,11 @@
 #+HTML_HEAD: <link rel="icon" type="image/png" href="../static/img/uh-logo.png" />
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../static/css/site.css" />
 #+HTML_HEAD: <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-#+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-#+HTML_HEAD: <script src="../static/js/contact-banner.js"></script>
+#+HTML_HEAD: <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mtml-chtml.js"></script>
 
-* Blog Test
+* Note Test
 
-This is a test blog post to demonstrate interactive mathematical content on the academic website.
+This is a test note to demonstrate interactive mathematical content on the academic website.
 
 ** MathJax example
 

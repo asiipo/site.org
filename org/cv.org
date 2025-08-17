@@ -1,5 +1,5 @@
 #+TITLE: Curriculum Vitae
-#+AUTHOR: {{NAME}}
+#+AUTHOR: Arttu Siipola
 #+OPTIONS: toc:nil num:nil html-style:nil
 
 * Curriculum Vitae

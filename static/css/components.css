@@ -1,0 +1,101 @@
+/* ==========================================================================
+   COMPONENTS - Cards, Navigation, Creator Info
+   ========================================================================== */
+
+/* Paper Links Section (used in research.org) */
+.paper-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contact Information */
+.contact-info {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Notes Layout - Full Width Without Sidebar */
+.notes-header {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--space-3) var(--space-4);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-4);
+}
+
+.notes-nav {
+    max-width: var(--measure);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.notes-home-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius);
+    transition: all 0.2s;
+}
+
+.notes-home-link:hover {
+    color: #ffe6b3;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.notes-title-section {
+    flex: 1;
+    text-align: center;
+}
+
+.notes-site-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+.notes-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.25rem 0 0 0;
+}
+
+/* Enhanced math content styling for notes */
+.notes-header ~ #content .MathJax {
+    font-size: 1.1em !important;
+}
+
+.notes-header ~ #content pre {
+    max-width: none;
+    overflow-x: auto;
+}
+
+/* Notes responsive design */
+@media (max-width: 768px) {
+    .notes-nav {
+        flex-direction: column;
+        gap: var(--space-2);
+        text-align: center;
+    }
+    
+    .notes-header {
+        padding: var(--space-2);
+    }
+    
+    .notes-site-title {
+        font-size: 1.25rem;
+    }
+}

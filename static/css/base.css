@@ -1,0 +1,246 @@
+/* ==========================================================================
+   BASE STYLES - Variables, Reset, Typography
+   ========================================================================== */
+
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* CSS Variables for consistent theming */
+:root {
+    /* Colors */
+    --primary-color: #1e4137;
+    --primary-light: #2a5a4c;
+    --secondary-color: #64748b;
+    --accent: #e76f51;             /* warm accent for micro-highlights */
+    --text-primary: #1e293b;
+    --text-secondary: #475569;      /* slightly darker */
+    --text-muted: #94a3b8;
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --surface-hover: #f1f5f9;
+    --border: #e2e8f0;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 1.5px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 10px rgba(0,0,0,.08);
+    --shadow-lg: 0 10px 24px rgba(0,0,0,.12);
+    
+    /* Borders */
+    --border-radius: 12px;
+    --border-radius-lg: 16px;
+    
+    /* Layout */
+    --measure: 72ch;
+    --sidebar-width: 280px;
+    
+    /* Spacing */
+    --space-1: .5rem; 
+    --space-2: 1rem; 
+    --space-3: 1.5rem;
+    --space-4: 2rem;  
+    --space-5: 3rem; 
+    --space-6: 4rem;
+    
+    /* Breakpoints */
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px; 
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1200px;
+}
+
+/* Base reset and styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    color: var(--text-primary);
+    background: var(--background);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', serif;
+    color: var(--text-primary);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1.title {
+    font-size: clamp(2.4rem, 3vw + 1.6rem, 4.5rem);
+    text-align: center;
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    line-height: 1.1;
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+}
+
+h1.title::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 1.2vw + 1.2rem, 2.25rem);
+    color: var(--text-primary);
+    border-bottom: 3px solid var(--border);
+    padding-bottom: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+ul li::marker {
+    color: var(--primary-color);
+}
+
+/* Code */
+pre {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    overflow-x: auto;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary-color);
+    margin: 2rem 0;
+}
+
+code {
+    background: var(--surface);
+    color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem 0;
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: var(--surface);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+tr:hover {
+    background: var(--surface-hover);
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 2rem 0;
+    padding-left: 2rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary-color);
+    position: absolute;
+    left: -1rem;
+    top: -1rem;
+    opacity: 0.2;
+}
+
+/* Print styles */
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
