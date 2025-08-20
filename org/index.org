@@ -1,6 +1,6 @@
 #+TITLE: Arttu Siipola
 #+AUTHOR: Arttu Siipola
-#+EMAIL: arttu.siipola@helsinki.fi
+#+EMAIL: arttu.siipola[at]helsinki[dot]fi
 #+OPTIONS: toc:nil num:nil html-style:nil
 
 * About Me
