@@ -83,7 +83,7 @@
               <rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" ry=\"2\"></rect>
               <path d=\"M3 7l9 6 9-6\"></path>
             </svg>
-            <a href=\"mailto:arttu.siipola@helsinki.fi\">Email</a>
+            <a href=\"mailto:arttu.siipola[at]helsinki[dot]fi\">Email</a>
           </div>
           <div class=\"contact-item\">
             <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" fill=\"currentColor\">
