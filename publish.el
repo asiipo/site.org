@@ -31,10 +31,14 @@
 
 ;; Configure Python executable for org-babel
 ;; Use system python in CI, local venv for development
-(setq org-babel-python-command 
-      (if (getenv "GITHUB_ACTIONS")
-          "python3"
-        (expand-file-name "./.venv/bin/python")))
+
+;; Set Python command based on OS
+(setq org-babel-python-command
+      (if (eq system-type 'windows-nt)
+          "python"
+        (if (getenv "GITHUB_ACTIONS")
+            "python3"
+          (expand-file-name "./.venv/bin/python"))))
 
 ;; Don't prompt before evaluating code blocks
 (setq org-confirm-babel-evaluate nil)
@@ -163,7 +167,7 @@
           <a href=\"%sindex.html\" class=\"notes-home-link\">← Back to Main Site</a>
           <div class=\"notes-title-section\">
             <h1 class=\"notes-site-title\">Arttu Siipola - Notes</h1>
-            <p class=\"notes-subtitle\">Mathematical explorations and interactive content</p>
+            <p class=\"notes-subtitle\">Test window for notes</p>
           </div>
         </div>
       </div>"

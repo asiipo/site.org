@@ -14,7 +14,6 @@ body {
     flex: 1;
     padding: var(--space-2);
     max-width: calc(var(--measure) + var(--space-4) * 2);
-    font-size: 16px;
 }
 
 /* Hide page titles since we have sidebar navigation */
@@ -211,7 +210,6 @@ h1.title {
 }
 
 .profile-text {
-    font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
     text-align: center;

@@ -9,12 +9,13 @@ ORG_DIR = org
 STATIC_DIR = static
 PORT = 8000
 
-# Detect OS for sed compatibility
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Darwin)
-    SED_INPLACE = sed -i ''
+# Detect OS for compatibility (cross-platform)
+ifeq ($(OS),Windows_NT)
+	IS_WINDOWS = 1
+else ifeq ($(shell uname -s 2>/dev/null),Darwin)
+	SED_INPLACE = sed -i ''
 else
-    SED_INPLACE = sed -i
+	SED_INPLACE = sed -i
 endif
 
 all: build
@@ -23,6 +24,9 @@ all: build
 build:
 	@echo "Building website..."
 	@emacs --batch -l publish.el --eval "(org-publish-all t)"
+ifdef IS_WINDOWS
+	@powershell -ExecutionPolicy Bypass -File windows-postprocess.ps1 -BuildDir $(BUILD_DIR)
+else
 	@echo "Post-processing HTML titles..."
 	@for mapping in "cv:Curriculum Vitae:CV" "research:Research:Research" "teaching:Teaching:Teaching" "misc:Miscellaneous:Misc"; do \
 		file=$$(echo $$mapping | cut -d: -f1); \
@@ -42,6 +46,7 @@ build:
 	@find $(BUILD_DIR)/blog/ -name "*.html" -exec $(SED_INPLACE) 's|src="static/|src="../static/|g' {} \; 2>/dev/null || true
 	@echo "Removing duplicate title tags (except index.html)..."
 	@find $(BUILD_DIR) -name "*.html" ! -name "index.html" -exec $(SED_INPLACE) 's|<title>Arttu Siipola</title>||g' {} \;
+endif
 	@echo "✅ Build complete!"
 
 # Serve locally for development
