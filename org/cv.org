@@ -12,23 +12,6 @@
 
 ** Education
 
-** Job Market Paper
-
-** Working Papers
-
-** Work in Progress
-
-** Publications
-
-** Honors & Awards
-
-** Presentations
-
-** Teaching Experience
-
-** Professional Experience
-
-** Skills
 
 ---
 /Last updated: {{{time(%Y-%m-%d)}}}/

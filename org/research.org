@@ -4,25 +4,11 @@
 
 * Research
 
-** Job Market Paper
-
-*** Coming Soon
-
-#+BEGIN_EXPORT html
-<div class="paper-links">
-  <!-- <a href="static/jmp.pdf" class="pdf-link">PDF</a> -->
-</div>
-#+END_EXPORT
-
-** Working Papers
-
 ** Work in Progress
 
-** Publications
+*Sovereign Risk over the Electoral Cycle* (with Timm Prein)
 
-** Research Interests
-
-** Conferences & Presentations
+Abstract: This paper presents a dynamic stochastic politico-economic model of sovereign debt to study fiscal policy decisions under default risk across the electoral cycle. The model features a two-party system where governments prioritize the welfare of distinct population groups and face uncertain electoral outcomes. There is disagreement over the preferred size of unproductive public spending, financed through taxation and external borrowing, with public expenditures exhibiting fiscal inertia. By explicitly modeling election timing, the analysis distinguishes policy choices across different stages of the electoral term. Quantitative results provide insights into how fiscal rigidity, electoral uncertainty, and strategic reelection considerations shape sovereign risk and public spending dynamics throughout the electoral cycle.
 
 ---
 

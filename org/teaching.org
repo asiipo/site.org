@@ -4,5 +4,9 @@
 
 * Teaching
 
+- Advanced Macroeconomics 2 - PhD, TA for Prof. Vähämaa, Fall 2023, 2024, 2025
+- Advanced Macroeconomics 3 - PhD, TA for Prof. Ripatti, Spring 2025
+
+
 ---
 /Last updated: {{{time(%Y-%m-%d)}}}/
